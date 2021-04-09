@@ -1,4 +1,5 @@
 import Accordion from "./Accordion";
+import Search from "./Search";
 
 //items object - hardcoded data
 
@@ -20,7 +21,8 @@ const items = [
 const App = () => {
   return (
     <div>
-      <Accordion items={items} />
+      {/* <Accordion items={items} /> */}
+      <Search />
     </div>
   );
 };

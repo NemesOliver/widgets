@@ -2,6 +2,9 @@ import { useState } from "react";
 import Accordion from "./Accordion";
 import Dropdown from "./Dropdown";
 import Search from "./Search";
+import Translate from "./Translate";
+import Route from "./Route";
+import Header from "./Header";
 
 //items aray - hardcoded data
 
@@ -36,19 +39,31 @@ const options = [
     value: "blue",
   },
 ];
+
 const App = () => {
   //state
   const [selected, setSelected] = useState(options[0]);
 
   return (
     <div>
-      {/* <Accordion items={items} /> */}
-      {/* <Search /> */}
-      <Dropdown
-        onSelectedChange={setSelected}
-        selected={selected}
-        options={options}
-      />
+      <Header />
+      <Route path="/">
+        <Accordion items={items} />
+      </Route>
+      <Route path="/list">
+        <Search />
+      </Route>
+      <Route path="/dropdown">
+        <Dropdown
+          label="Select a color"
+          options={options}
+          selected={selected}
+          onSelectedChange={setSelected}
+        />
+      </Route>
+      <Route path="/translate">
+        <Translate />
+      </Route>
     </div>
   );
 };
